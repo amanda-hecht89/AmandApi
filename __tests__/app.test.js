@@ -3,12 +3,18 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-describe('backend-express-template routes', () => {
+const { amandas } = require('../data/amandas');
+
+describe('amandas routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('example test - delete me!', () => {
-    expect(1).toEqual(1);
+  it('/amandas should return a list of amandas', () => {
+    const res = await request(app).get('amandas');
+    const expected = amandas.map((amanda) => {
+      return { id: amanda.id, name: amanda.name };
+    });
+    expect(res.body).toEqual(expected);
   });
   afterAll(() => {
     pool.end();
