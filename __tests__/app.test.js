@@ -3,7 +3,7 @@ const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
 
-const { amandas } = require('../data/amandas');
+const { amandas } = require('../models/Amanda');
 
 describe('amandas routes', () => {
   beforeEach(() => {
