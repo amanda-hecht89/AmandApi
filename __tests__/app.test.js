@@ -12,7 +12,7 @@ describe('amandas routes', () => {
   it('/amandas should return a list of amandas', async() => {
     const res = await request(app).get('amandas');
     const expected = amandas.map((amanda) => {
-      return { id: amanda.id, name: amanda.name };
+      return { id: amanda.id, lastName: amanda.lastName };
     });
     expect(res.body).toEqual(expected);
   });
