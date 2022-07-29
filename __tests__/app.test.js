@@ -10,7 +10,7 @@ describe('amandas routes', () => {
     return setup(pool);
   });
   it('/amandas should return a list of amandas', async() => {
-    const res = await request(app).get('/Amandas');
+    const res = await request(app).get('/amandas');
     expect(res.body.length).toEqual(8);
      
   });
