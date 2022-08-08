@@ -14,6 +14,18 @@ describe('amandas routes', () => {
     expect(res.body.length).toEqual(8);
      
   });
+  it('/:id should return a single amanda', async () => {
+    const res = await request(app).get('/amandas/2');
+    expect(res.body).toEqual({
+      id: '2',
+      lastName: 'Bynes',
+      age: 36,
+      year: 1986,
+      imageUrl: 'https://en.wikipedia.org/wiki/Amanda_Bynes',
+      famous: 'Actress: The Amanda Show',
+      alive: true
+    });
+  });
 });
 afterAll(() => {
   pool.end();
